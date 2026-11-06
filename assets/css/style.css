@@ -1,0 +1,914 @@
+/* ==========================================================================
+   Méér dan Woorden: global styles
+   ========================================================================== */
+
+:root {
+  --blue: #5b7299;
+  --blue-dark: #3d5478;
+  --bg: #f2f4f7;
+  --text: #5f6470;
+  --heading: #333;
+  --orange: #f0b35a;
+  --max-width: 680px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--blue);
+}
+
+h1, h2, h3 {
+  color: var(--heading);
+  line-height: 1.25;
+}
+
+.container {
+  width: min(calc(100% - 2rem), var(--max-width));
+  margin-inline: auto;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  color: var(--blue-dark);
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid #e3e7ee;
+}
+
+.header-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem 0;
+}
+
+@media (min-width: 700px) {
+  .header-inner {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.logo {
+  color: var(--blue-dark);
+  text-decoration: none;
+  line-height: 1.1;
+}
+
+.logo img {
+  display: block;
+  width: 218px;
+  max-width: 100%;
+  height: auto;
+}
+
+.main-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main-nav a {
+  color: #444;
+  font-size: 0.95rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.main-nav a:hover,
+.main-nav a:focus-visible,
+.main-nav a[aria-current="page"] {
+  color: var(--blue);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(260px, 40vw, 420px);
+  padding: 2rem 1rem;
+  text-align: center;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+    url("../images/heroes/reflectie.jpg") center / cover no-repeat;
+}
+
+.hero-inner {
+  max-width: 52rem;
+}
+
+.hero-quote {
+  margin: 0;
+  font-family: "Itim", cursive;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+
+.hero-author {
+  margin: 0.5rem 0 0;
+  font-family: "Itim", cursive;
+  font-size: 1.1rem;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+
+/* Interior page hero: default is the Tekst page photo */
+.hero--page {
+  min-height: clamp(300px, 45vw, 560px);
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+    url("../images/heroes/rimpelingen.jpg") center / cover no-repeat;
+}
+
+.hero--page .hero-quote {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+}
+
+.hero--beeld {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+    url("../images/heroes/dubbelop.jpg") center / cover no-repeat;
+}
+
+/* ---------- Divider ---------- */
+.divider {
+  width: 100%;
+  margin: 3rem auto;
+  border: 0;
+  border-top: 2px solid var(--blue);
+}
+
+/* ---------- Interior page sections ---------- */
+.page-section {
+  padding: 2.5rem 0;
+}
+
+.section-title {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.prose p {
+  margin: 0 0 1rem;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Feature blocks (text + image) ---------- */
+.feature {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  padding: 3rem 0;
+}
+
+@media (min-width: 700px) {
+  .feature {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .feature--stijl {
+    grid-template-columns: 3fr 2fr;
+  }
+
+  .feature--tarieven {
+    grid-template-columns: 2fr 3fr;
+  }
+}
+
+.feature h2 {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.feature--stijl h2,
+.feature--tarieven h2 {
+  text-transform: none;
+}
+
+.feature p {
+  margin: 0 0 1.5rem;
+}
+
+.feature-media img {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.actions {
+  text-align: right;
+}
+
+/* Full-width colored band (AFBEELDINGEN) */
+.band {
+  padding: 1rem 0;
+}
+
+.band--beeld {
+  background: linear-gradient(135deg, #6b82a6, #b4bfd1);
+}
+
+.band--beeld .feature h2,
+.band--beeld .feature p {
+  color: #fff;
+}
+
+.band--beeld .feature h2 {
+  color: #fff;
+}
+
+.band--kwaliteit {
+  background: linear-gradient(320deg, #aebed2 18%, var(--blue) 100%);
+}
+
+.band--kwaliteit .feature h2,
+.band--kwaliteit .feature p {
+  color: #fff;
+}
+
+.band--kwaliteit .feature h2 {
+  text-transform: none;
+}
+
+/* Full-width gradient band on the Beeld page */
+.band--gradient {
+  background: linear-gradient(320deg, #aebed2 18%, var(--blue) 100%);
+}
+
+.band--gradient .section-title,
+.band--gradient .prose {
+  color: #fff;
+}
+
+.band--gradient .prose a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.band--gradient .actions {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+@media (min-width: 700px) {
+  .band--gradient .actions {
+    text-align: right;
+  }
+}
+
+.quality-logo {
+  margin-top: 1.5rem;
+  text-align: right;
+}
+
+.quality-logo a {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border-radius: 2px;
+  background: var(--orange);
+  color: #faf6f6;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  background: var(--blue-dark);
+}
+
+/* ---------- Blog card ---------- */
+.card {
+  max-width: 300px;
+  margin-inline: auto;
+  padding: 1.25rem;
+  text-align: center;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.3rem;
+}
+
+.card h3 a {
+  color: var(--heading);
+  text-decoration: none;
+}
+
+.card p {
+  margin: 0 0 1rem;
+  color: #444;
+}
+
+.card .more {
+  color: #222;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  padding: 0 0 2rem;
+  font-size: 0.9rem;
+}
+
+.site-footer .divider {
+  margin-top: 0;
+}
+
+.footer-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 700px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.footer-title {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+.footer-grid > div:last-child {
+  text-align: left;
+}
+
+@media (min-width: 700px) {
+  .footer-grid > div:last-child {
+    text-align: right;
+  }
+}
+
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 700px) {
+  .social {
+    justify-content: flex-end;
+  }
+}
+
+.social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border-radius: 12%;
+  background: var(--orange);
+  color: #fff;
+  text-decoration: none;
+}
+
+.social a:hover,
+.social a:focus-visible {
+  background: var(--blue-dark);
+}
+
+.social svg {
+  width: 1.55rem;
+  height: 1.55rem;
+  fill: currentColor;
+}
+
+.partner-logo {
+  display: inline-block;
+}
+
+.partner-logo img {
+  width: 132px;
+  height: auto;
+}
+
+.footer-legal {
+  margin: 2rem 0 0;
+  text-align: center;
+  color: #555;
+}
+
+.footer-legal a {
+  color: #555;
+}
+
+/* ---------- Utility ---------- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Interior page heroes ---------- */
+.hero--over-mij {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+    url("../images/heroes/marjan-de-kort.jpg") center / cover no-repeat;
+}
+
+.hero--contact {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+    url("../images/heroes/contact.jpg") center / cover no-repeat;
+}
+
+.hero--blog {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+    url("../images/heroes/draaikolk.jpg") center / cover no-repeat;
+}
+
+/* ---------- Prose (legal pages, posts, long copy) ---------- */
+.prose h2 {
+  margin: 2rem 0 1rem;
+  font-size: 1.4rem;
+  color: var(--blue);
+}
+
+.prose h3 {
+  margin: 1.5rem 0 0.75rem;
+  font-size: 1.15rem;
+  color: var(--heading);
+}
+
+.prose ul,
+.prose ol {
+  margin: 0 0 1rem;
+  padding-left: 1.4rem;
+}
+
+.prose li {
+  margin-bottom: 0.4rem;
+}
+
+.prose strong {
+  color: var(--heading);
+}
+
+.prose figure {
+  margin: 1.5rem 0;
+}
+
+.prose hr {
+  margin: 2rem 0;
+  border: 0;
+  border-top: 1px solid #d7dee8;
+}
+
+/* ---------- Blog overview ---------- */
+.blog-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 700px) {
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .blog-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.blog-card-date {
+  margin: 0 0 0.5rem;
+  color: #7a808b;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.blog-card h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.2rem;
+}
+
+.blog-card h3 a {
+  color: var(--heading);
+  text-decoration: none;
+}
+
+.blog-card h3 a:hover,
+.blog-card h3 a:focus-visible {
+  color: var(--blue);
+}
+
+.blog-card p {
+  margin: 0 0 1rem;
+  color: #444;
+}
+
+.blog-card .more {
+  margin-top: auto;
+  color: #222;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ---------- Single post ---------- */
+.post {
+  padding: 3rem 0;
+}
+
+.post-header h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+}
+
+.post-meta {
+  margin: 0;
+  color: #707783;
+  font-size: 0.9rem;
+}
+
+.post-content {
+  overflow-wrap: break-word;
+}
+
+/* ---------- Over mij / Contact ---------- */
+.feature--inspiratie .feature-media,
+.feature--contact .feature-media {
+  min-height: 260px;
+  background: linear-gradient(135deg, #dfe6ef, #c3cedd);
+}
+
+.contact-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1.05rem;
+}
+
+.contact-list li {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid #d7dee8;
+}
+
+.contact-list li:first-child {
+  padding-top: 0;
+}
+
+.contact-list a {
+  color: var(--blue-dark);
+  text-decoration: none;
+}
+
+.contact-list a:hover,
+.contact-list a:focus-visible {
+  text-decoration: underline;
+}
+
+.blog-card-media {
+  aspect-ratio: 4 / 3;
+  margin: -1.25rem -1.25rem 1rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, #dfe6ef, #c3cedd);
+}
+
+.blog-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Focus visibility ---------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+}
+
+/* ---------- Blog overview: progressive loading ---------- */
+.blog-load-more-wrap {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.blog-load-more {
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+.blog-status {
+  margin: 0.75rem 0 0;
+  min-height: 1.5em;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.js .blog-card--extra:not(.is-visible) {
+  display: none;
+}
+
+/* ---------- Post figures ---------- */
+.post-content figure img,
+.prose figure img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+}
+
+.post-content figcaption,
+.prose figcaption {
+  margin-top: 0.5rem;
+  color: #666;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ---------- Client logo carousel ---------- */
+.client-carousel {
+  margin-top: 1.5rem;
+  overflow: hidden;
+  padding: 0.25rem 0;
+}
+
+.client-track {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.client-group {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.client-logo {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 90px;
+  padding: 0.5rem;
+  background: #fff;
+  border: 1px solid #e3e7ee;
+}
+
+.client-logo img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.client-carousel.is-ready .client-track {
+  flex-wrap: nowrap;
+  width: max-content;
+  justify-content: flex-start;
+  animation: client-scroll 60s linear infinite;
+}
+
+.client-carousel.is-ready .client-group[data-client-clone] {
+  pointer-events: none;
+}
+
+.client-carousel:hover .client-track,
+.client-carousel:focus-within .client-track,
+.client-carousel.is-paused .client-track {
+  animation-play-state: paused;
+}
+
+.client-pause {
+  display: block;
+  margin: 1rem auto 0;
+  padding: 0.45rem 1rem;
+  border: 1px solid var(--blue);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--blue-dark);
+  font: inherit;
+  cursor: pointer;
+}
+
+.client-pause:hover,
+.client-pause:focus-visible {
+  background: var(--blue);
+  color: #fff;
+}
+
+@keyframes client-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .client-carousel.is-ready .client-track {
+    flex-wrap: wrap;
+    width: auto;
+    justify-content: center;
+    animation: none;
+    transform: none;
+  }
+
+  .client-carousel.is-ready .client-group[data-client-clone],
+  .client-pause {
+    display: none;
+  }
+}
+
+/* ---------- Contact form ---------- */
+.contact-form {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.form-field {
+  margin-bottom: 1.25rem;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--heading);
+  font-weight: 600;
+}
+
+.form-field .required {
+  color: #b24020;
+}
+
+.form-field input[type="text"],
+.form-field input[type="email"],
+.form-field textarea {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid #b9c2cf;
+  border-radius: 2px;
+  background: #fff;
+  color: var(--heading);
+  font: inherit;
+}
+
+.form-field textarea {
+  min-height: 9rem;
+  resize: vertical;
+}
+
+.form-field input[aria-invalid="true"],
+.form-field textarea[aria-invalid="true"] {
+  border-color: #b24020;
+  box-shadow: inset 0 0 0 1px #b24020;
+}
+
+.field-error {
+  margin: 0.35rem 0 0;
+  color: #9b2c12;
+  font-size: 0.9rem;
+}
+
+.field-error:empty {
+  display: none;
+}
+
+.form-consent {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.6rem;
+  align-items: start;
+}
+
+.form-consent input {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-top: 0.3rem;
+}
+
+.form-consent label {
+  margin: 0;
+  font-weight: 400;
+}
+
+.form-consent .field-error {
+  grid-column: 2;
+}
+
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-status {
+  margin: 1rem 0 0;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid var(--blue);
+  background: #eef2f7;
+}
+
+.form-status:empty {
+  display: none;
+}
+
+.form-status.is-error {
+  border-left-color: #b24020;
+  background: #fdf0ec;
+}
+
+.form-status.is-success {
+  border-left-color: #3c7a4a;
+  background: #eef7f0;
+}
+
+.form-fallback {
+  margin: 1rem 0 0;
+  font-size: 0.9rem;
+}
